@@ -8,8 +8,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Navigation {
 	
 	static WebDriver driver;
-
+	
 	private static final String BOTAO_PESQUISAR = ".//input[contains(@name, 'btnK')]";
+	
+	public static WebElement getInputSearch(){
+		WebElement campoPesquisa = driver.findElement(By.name("q"));
+		return campoPesquisa;
+	}
 	
 	public static WebElement getBtnPesquisar(){
 		WebElement botaoPesquisa = driver.findElement(By.xpath(BOTAO_PESQUISAR));
@@ -28,7 +33,7 @@ public class Navigation {
 	}
 	
 	public static void realizarPesquisa(String pesquisa){
-		driver.findElement(By.name("q")).sendKeys(pesquisa);
+		getInputSearch().sendKeys(pesquisa);
 		getBtnPesquisar().click();
 	}
 }

@@ -41,5 +41,6 @@ public class Report {
 	public static void addStep(WebElement element, String description) throws AWTException, IOException{
 		highlightElement(element);
 		gerarEvidencia();
+		System.out.println("Cenário: " + description);
 	}
 }

@@ -1,18 +1,9 @@
 package Chrome;
 
 import java.awt.AWTException;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -51,7 +42,8 @@ public class Navigation {
 	public static void realizarPesquisa(String pesquisa) throws AWTException, IOException {
 		getInputSearch().sendKeys(pesquisa);
 		getBtnPesquisar().click();
-		//Report.addStep(getInputSearch(), "Efetuar pesquisa no Google");
+		Report.addStep(getInputSearch(), "Efetuar pesquisa no Google");
+		finalizarCenario();
 	}
 
 	public static void finalizarCenario() {

@@ -25,7 +25,6 @@ public class Report {
 		Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 		BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
 		ImageIO.write(screenFullImage, format, new File("C://Users//Luis Henrique Lima//Desktop" + "\\" + navigation.driver.getTitle() + ".jpg"));
-		
 	}
 	
 	public static void highlightElement(WebElement element){

@@ -7,6 +7,6 @@ public class ExecuteChrome {
 
 	public static void main(String[] args) throws AWTException, IOException {
 		Navigation.acessarPagina();
-		Navigation.realizarPesquisa("Bring My Beer");
+		Navigation.realizarPesquisa("Iago Guimarães");
 	}
 }

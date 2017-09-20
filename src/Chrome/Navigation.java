@@ -12,7 +12,7 @@ public class Navigation {
 
 	static WebDriver driver;
 
-	private static final String BOTAO_PESQUISAR = ".//input[contains(@name, 'btnK')]";
+	private static final String BOTAO_PESQUISAR = ".//input[contains(@value, 'Pesquisa Google')]";
 
 	public static WebDriver getWebDriver() {
 		return driver;

@@ -1,10 +1,17 @@
 package br.com.tutorialselenium.pdf;
 
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import javax.imageio.ImageIO;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -27,7 +34,7 @@ public class CriaPDF {
 		return doc;
 	}
 
-	public static void addCabecalhoPDF(Document doc, String nomeCT) throws DocumentException {
+	public static void addCabecalhoPDF(Document doc, String nomeCT) throws DocumentException, AWTException {
 		Calendar date = new GregorianCalendar();
 
 		Font boldFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
@@ -95,6 +102,11 @@ public class CriaPDF {
 		tableheader.setSpacingAfter(20);
 
 		doc.add(tableheader);
+		
+		String format = "jpg";
+		Robot robot = new Robot();
+		Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+		BufferedImage screenFullImage = robot.createScreenCapture(screenRect);	
 	}
 
 }

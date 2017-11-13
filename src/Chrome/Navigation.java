@@ -42,7 +42,7 @@ public class Navigation {
 
 	public static void executarChrome() {
 		System.setProperty("webdriver.chrome.driver",
-				"C://Users//Luis Henrique Lima//Documents//Arquivos//chromedriver_win32//chromedriver.exe");
+				"Drivers//chromedriver.exe");
 		driver = new ChromeDriver();
 	}
 

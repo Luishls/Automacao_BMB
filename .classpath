@@ -37,7 +37,7 @@
 	<classpathentry kind="lib" path="libs/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="libs/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="libs/xml-apis-1.4.01.jar"/>
-	<classpathentry kind="lib" path="C:/Users/luis.hlsousa/Downloads/Selenium/libs"/>
-	<classpathentry kind="lib" path="C:/Users/luis.hlsousa/Downloads/itext-5.1.2/itextpdf-5.1.2.jar"/>
+	<classpathentry kind="lib" path="Drivers/itextpdf-5.1.2.jar"/>
+	<classpathentry kind="lib" path="Drivers/Selenium"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

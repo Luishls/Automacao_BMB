@@ -25,7 +25,7 @@ public class Report {
 		Robot robot = new Robot();
 		Date data = new Date();	
 		
-		File raiz = new File("C://Users//Luis Henrique Lima//Desktop//Evidencias De Teste");
+		File raiz = new File("C://Users//caue.ghetti//Desktop//Evidencias De Teste");
 		raiz.mkdir();
 		File dir2 = new File(raiz + "//Execucao" + data.getTime());
 		dir2.mkdir();

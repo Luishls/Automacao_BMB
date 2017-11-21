@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class Navigation {
 
@@ -18,10 +19,21 @@ public class Navigation {
 		return driver;
 	}
 
-	public static WebElement getInputSearch() {
+	public static WebElement getInputUser() {
 		try {
-		WebElement campoPesquisa = getWebDriver().findElement(By.name("q"));
-		return campoPesquisa;
+		WebElement user = driver.findElement(By.id("email"));
+		return user;
+		} catch(Exception e){
+			System.err.println("Campo não encontrado!");
+			finalizarCenario(e);
+			return null;
+		}
+	}
+	
+	public static WebElement getInputPass() {
+		try {
+		WebElement pass = driver.findElement(By.id("senha"));
+		return pass;
 		} catch(Exception e){
 			System.err.println("Campo não encontrado!");
 			finalizarCenario(e);
@@ -31,7 +43,7 @@ public class Navigation {
 
 	public static WebElement getBtnPesquisar() {
 		try {
-		WebElement botaoPesquisa = getWebDriver().findElement(By.xpath(BOTAO_PESQUISAR));
+		WebElement botaoPesquisa = getWebDriver().findElement(By.id("formLoginButtonSubmit"));
 		return botaoPesquisa;
 		} catch(Exception e){
 			System.err.println("Botão não encontrado");
@@ -40,30 +52,32 @@ public class Navigation {
 		}
 	}
 
-	public static void executarChrome() {
-		System.setProperty("webdriver.chrome.driver",
-				"Drivers//chromedriver.exe");
-		driver = new ChromeDriver();
+	public static void executar() {
+		System.setProperty("webdriver.ie.driver",
+				"Drivers//IEDriverServer.exe");
+		driver = new InternetExplorerDriver();
 	}
 
 	public static void acessarPagina() {
 		try {
-		executarChrome();
-		getWebDriver().get("https://www.google.com.br/");
+		executar();
+		getWebDriver().get("www.sp.senac.br/login");
 		} catch(Exception e){
 			finalizarCenario(e);
 		}
 	}
 
-	public static void realizarPesquisa(String pesquisa) throws AWTException, IOException {
+	public static void realizarPesquisa(String user, String pass) throws AWTException, IOException {
 		try {
-		getInputSearch().sendKeys(pesquisa);
+		Thread.sleep(4000);
+		getInputUser().sendKeys(user);
+		getInputPass().sendKeys(pass);
 		getBtnPesquisar().click();
-		Report.addStep(getInputSearch(), "Efetuar pesquisa no Google");
+		Report.addStep(getInputUser(), "Efetuar Login no senac");
 		finalizarCenario();
 		}catch(Exception e){
 			finalizarCenario(e);
-			System.err.println("Não foi possivela realizar a pesquisa");
+			System.err.println("Não foi possivela realizar login");
 		}
 	}
 
